@@ -21,5 +21,17 @@ namespace RaytracedAudio
 
             point =  math.normalize(new float3(x, y, z));
         }
+
+        [BurstCompile]
+        public static float MuffleCutoff(float value)
+        {
+            return math.lerp(10, 22000, 0.01f / math.log(2 - value));
+        }
+
+        [BurstCompile]
+        public static float EchoLerp(float min, float max, float value)
+        {
+            return math.remap(min, max, 0.1f, 2, value);
+        }
     }
 }

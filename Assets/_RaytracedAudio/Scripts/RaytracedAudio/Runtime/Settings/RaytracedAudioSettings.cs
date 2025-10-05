@@ -33,10 +33,12 @@ namespace RaytracedAudio
         public static int MaxRayBounces => Instance._maxRayBounces;
         public static int RaysPerSource => Instance._raysPerSource;
         public static LayerMask RaycastLayerMask => Instance._raycastLayerMask;
+        public static float SmallRoomSize => Instance._smallRoomSize;
 
         [SerializeField, Min(0)] private int _maxRayBounces = 5;
         [SerializeField, Min(0)] private int _raysPerSource = 10;
         [SerializeField] private LayerMask _raycastLayerMask = ~0;
+        [SerializeField] private float _smallRoomSize = 5;
 
 #if UNITY_EDITOR
         public static SerializedObject GetSerializedSettings()
